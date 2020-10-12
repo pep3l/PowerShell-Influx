@@ -40,7 +40,7 @@ Function Invoke-UDPSendMethod {
     }
     Process {
         ForEach ($DataItem in $Data) {
-            $EncodedData = [System.Text.Encoding]::ASCII.GetBytes($DataItem)
+            $EncodedData = [System.Text.Encoding]::UTF8.GetBytes($DataItem)
     
             if ($PSCmdlet.ShouldProcess("$($IP):$Port","$DataItem")) {
                 $BytesSent = $UDPClient.Send($EncodedData, $EncodedData.length, $Endpoint)
