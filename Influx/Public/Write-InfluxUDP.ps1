@@ -123,7 +123,7 @@
                 $Body = $Body -Join "`n"
             
                 if ($PSCmdlet.ShouldProcess("$($IP):$Port", "$Body")) {
-                    $Body | Invoke-UDPSendMethod -IP $IP -Port $Port
+                    $Body | Invoke-UDPSendMethod -IP $IP -Port $Port -ContentType 'text/html; charset=utf-8'
                 }
             }
         }
